@@ -1,0 +1,8 @@
+-> In inventory.ini
+  
+[webservers]
+IP1
+IP2
+
+-> To execute playbook
+ansible-playbook -i inventory.ini deploy_script.yml
