@@ -1,0 +1,19 @@
+This Java program implements an Order Processing System using the Chain of Responsibility pattern to validate and process orders based on predefined conditions.  
+
+The `Order` class represents an order with an ID and an amount. 
+The `OrderValidator` abstract class defines a validation structure, allowing multiple validators to be chained together. 
+If an order passes all checks, it gets processed; otherwise, it is rejected.  
+
+Two concrete validators extend this class: `MinAmountValidator`, which ensures the order amount is above 1000 Euros, and `MaxAmountValidator`, 
+which ensures it is below 5000 Euros. These validators are linked in sequence to form a validation pipeline.  
+
+The `OrderProcessor` class takes an order and passes it through the validator chain. 
+If all checks pass, the order is processed; otherwise, an appropriate rejection message is displayed.  
+
+In the main method, the validation chain is set up (`MinAmountValidator → MaxAmountValidator`). 
+A list of sample orders is processed, demonstrating both successful and rejected cases.  
+
+Expected output:  
+Order ID: 1 (1200 Euros) is processed, while Order ID: 2 (900 Euros) and Order ID: 3 (7000 Euros) are rejected.  
+
+This approach makes the system modular, scalable, and flexible, allowing easy addition of new validation rules.
